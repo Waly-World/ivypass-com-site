@@ -1,2 +1,15 @@
 [build]
   publish = "site"
+
+# ivy.cash is an alias of this site; send it to the company domain (2026-11-24).
+[[redirects]]
+  from = "https://ivy.cash/*"
+  to = "https://ivypass.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://ivy.cash/*"
+  to = "https://ivypass.com/:splat"
+  status = 301
+  force = true
