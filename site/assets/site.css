@@ -103,6 +103,14 @@ p { margin: 0; }
 }
 .phone img { width: 100%; height: 100%; object-fit: cover; object-position: top center; border-radius: 32px; }
 
+/* Two or three captures in one entry: a row that fits the width, no carousel.
+   Phone: two side by side; three = the main one large, the other two beneath. */
+.phones { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; width: 100%; max-width: 520px; }
+.phones .phone { width: 100%; padding: 6px; border-radius: 30px; }
+.phones .phone img { border-radius: 24px; }
+.phones.n3 .phone:first-child { grid-column: 1 / -1; width: min(250px, 66vw); padding: 8px; border-radius: 40px; }
+.phones.n3 .phone:first-child img { border-radius: 32px; }
+
 /* How it works */
 .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 36px; counter-reset: step; }
 .steps li { counter-increment: step; max-width: 40ch; }
@@ -150,6 +158,10 @@ p { margin: 0; }
 .concept .for { margin-top: 10px; font-style: italic; color: var(--muted); }
 .concept .line { margin-top: 14px; max-width: 46ch; }
 .concept .actions { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px 28px; font-weight: 700; }
+.more { padding: 48px 0; border-top: 1px solid var(--rule); }
+.more p:first-child { max-width: 40ch; font-size: clamp(1.25rem, 3.8vw, 1.6rem); line-height: 1.3; letter-spacing: -0.01em; }
+.more strong { font-weight: 800; }
+.more .actions { margin-top: 22px; font-weight: 700; }
 .closing { margin-top: 8px; font-size: clamp(1.25rem, 3.8vw, 1.6rem); font-weight: 600; letter-spacing: -0.01em; }
 .explore-hero img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 50%; background: #000; }
 
@@ -164,6 +176,10 @@ p { margin: 0; }
   .hero { padding-top: 48px; }
   .hero-image img, .explore-hero img { aspect-ratio: 16 / 9; }
   .steps { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .phones { gap: 16px; }
+  .phones.n3 { grid-template-columns: repeat(3, 1fr); max-width: 680px; }
+  .phones.n3 .phone:first-child { grid-column: auto; width: 100%; padding: 6px; border-radius: 30px; }
+  .phones.n3 .phone:first-child img { border-radius: 24px; }
 }
 
 @media (min-width: 960px) {
@@ -173,6 +189,10 @@ p { margin: 0; }
   .launch.wide { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
   .launch .media, .concept .media { justify-self: end; }
   .launch.wide .media { justify-self: stretch; }
+  .launch.multi { grid-template-columns: minmax(0, 1fr) auto; }
+  .phones.n2 { grid-template-columns: repeat(2, 240px); max-width: none; }
+  .phones.n3 { grid-template-columns: repeat(3, 210px); max-width: none; }
+  .more { padding: 64px 0; }
   .phone { width: 280px; }
   .launch .line, .concept .line { font-size: 1.25rem; }
   .hero-image img { aspect-ratio: 1400 / 801; }
