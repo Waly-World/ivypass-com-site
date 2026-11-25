@@ -120,6 +120,10 @@ p { margin: 0; }
   font-size: 3.5rem; font-weight: 800; line-height: 1; letter-spacing: -0.04em; color: var(--ivy);
 }
 .steps strong { display: block; font-size: 1.5rem; letter-spacing: -0.02em; margin-bottom: 6px; }
+.ways { margin-bottom: 36px; }
+.ways li::before { content: none; }
+.ways strong { font-size: clamp(1.6rem, 5vw, 2.4rem); color: var(--ivy); }
+.proof { color: var(--ivy); font-weight: 800; }
 
 /* Text sections */
 .prose p { max-width: 54ch; }
